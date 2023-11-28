@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {createContext, useContext, useState} from 'react';
+import {Route, Routes} from 'react-router-dom';
+import { Navigation } from './components/Navigation';
+import { AboutPage } from './pages/AboutPage';
+import { LoginPage } from './pages/LoginPage';
+import { MainPage } from './pages/MainPage';
+import { RegistrationPage } from './pages/RegistrationPage';
+import { RolePage } from './pages/RolePage';
+import { TaskPage } from './pages/TaskPage';
+import { UserPage } from './pages/UserPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return(
+    <>
+    <Navigation />
+    <Routes>
+      <Route path='/' element={<MainPage />}/>
+      <Route path='/tasks' element={<TaskPage />}/>
+      <Route path='/roles' element={<RolePage />}/>
+      <Route path='/users' element={<UserPage />}/>
+      <Route path='/about' element={<AboutPage />}/>
+      <Route path='/login' element={<LoginPage />}/>
+      <Route path='/registration' element={<RegistrationPage />}/>
+    </Routes>
+    </>
   );
 }
 
